@@ -91,5 +91,5 @@ GenreQuestionScreen.propTypes = {
   }).isRequired,
 };
 
-
+{/**/}
 export default GenreQuestionScreen;
