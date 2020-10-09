@@ -15,7 +15,7 @@ const WelcomeScreen = (props) => {
         <span className="visually-hidden">
           Начать игру
         </span>
-     </button>
+      </button>
       <h2 className="welcome__rules-title">Правила игры</h2>
       <p className="welcome__text">Правила просты:</p>
       <ul className="welcome__rules-list">
