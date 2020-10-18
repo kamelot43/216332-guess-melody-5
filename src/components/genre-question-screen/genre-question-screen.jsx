@@ -8,14 +8,18 @@ class GenreQuestionScreen extends PureComponent {
     super(props);
 
     this.state = {
-      answers: [false, false, false, false]
+      activePlayer: 0,
+      answers: [false, false, false, false],
     };
   }
 
   render() {
     const {onAnswer, question} = this.props;
-    const {answers: userAnswers} = this.state;
-    const {answers, genre} = question;
+    const {answers: userAnswers, activePlayer} = this.state;
+    const {
+      answers,
+      genre,
+    } = question;
 
     return (
       <section className="game game--genre">
@@ -31,15 +35,14 @@ class GenreQuestionScreen extends PureComponent {
           </svg>
 
           <div className="game__mistakes">
-            <div className="wrong"></div>
-            <div className="wrong"></div>
-            <div className="wrong"></div>
+            <div className="wrong"/>
+            <div className="wrong"/>
+            <div className="wrong"/>
           </div>
         </header>
 
         <section className="game__screen">
-          <h2 className="game__title">Выберите {genre}треки</h2>
-
+          <h2 className="game__title">Выберите {genre} треки</h2>
           <form
             className="game__tracks"
             onSubmit={(evt) => {
@@ -50,7 +53,12 @@ class GenreQuestionScreen extends PureComponent {
             {answers.map((answer, i) => (
               <div key={`${i}-${answer.src}`} className="track">
                 <AudioPlayer
-                  isPlaying={i === 0}
+                  onPlayButtonClick={() => {
+                    this.setState({
+                      activePlayer: activePlayer === i ? -1 : i,
+                    });
+                  }}
+                  isPlaying={i === activePlayer}
                   src={answer.src}
                 />
                 <div className="game__answer">
@@ -90,5 +98,4 @@ GenreQuestionScreen.propTypes = {
   }).isRequired,
 };
 
-{/**/}
 export default GenreQuestionScreen;
