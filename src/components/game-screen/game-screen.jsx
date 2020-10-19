@@ -4,7 +4,7 @@ import {Redirect} from 'react-router-dom';
 import {GameType} from '../../const';
 import ArtistQuestionScreen from '../artist-question-screen/artist-question-screen';
 import GenreQuestionScreen from '../genre-question-screen/genre-question-screen';
-import withAudioPlayer from "../../hocs/with-audio-player/with-audio-player";
+import withAudioPlayer from "../../hocs/with-audio-player";
 
 const GenreQuestionScreenWrapped = withAudioPlayer(GenreQuestionScreen);
 const ArtistQuestionScreenWrapped = withAudioPlayer(ArtistQuestionScreen);
